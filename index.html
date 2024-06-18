@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://GawleyEllis.github.io/inquiry/stylesheet.css">
     <title>お問い合わせフォーム</title>
- 
+   
 </head>
 <body>
     <div class="header">
@@ -56,7 +55,7 @@
 
             const formData = new FormData(this);
 
-            fetch('submit_form.php', {
+            fetch('send_mail.php', {
                 method: 'POST',
                 body: formData
             })
