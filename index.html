@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://GawleyEllis.github.io/inquiry/stylesheet.css">
     <title>お問い合わせフォーム</title>
  
 </head>
@@ -26,7 +25,7 @@
     <div class="container">
         <h1>お問い合わせ</h1>
         <p>バグや問題が発生した場合は、以下のフォームにご記入の上、ご報告ください。</p>
-        <form action="submit_form.php" method="POST">
+        <form id="contactForm">
             <div class="form-group">
                 <label for="name">名前:</label>
                 <input type="text" id="name" name="name" required>
@@ -50,6 +49,25 @@
             const menu = document.getElementById('menu');
             menu.style.width = menu.style.width === '250px' ? '0' : '250px';
         }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+            const formData = new FormData(this);
+
+            fetch('submit_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('お問い合わせが送信されました。');
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+                alert('お問い合わせの送信に失敗しました。');
+            });
+        });
     </script>
 </body>
 </html>
