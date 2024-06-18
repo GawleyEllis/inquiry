@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://GawleyEllis.github.io/inquiry/stylesheet.css">
     <title>お問い合わせフォーム</title>
-  
+   
 </head>
 <body>
     <div class="header">
@@ -31,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" value="lam007ww@gmail.com" readonly>
+                <input type="email" id="email" name="email" placeholder="lam007ww@gmail.com" required>
             </div>
             <div class="form-group">
                 <label for="message">メッセージ:</label>
@@ -51,9 +50,10 @@
 
         function validateForm() {
             const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            if (!name || !message) {
-                alert('名前とメッセージを入力してください。');
+            if (!name || !email || !message) {
+                alert('名前、メールアドレス、メッセージを入力してください。');
                 return false;
             }
             return true;
