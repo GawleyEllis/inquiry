@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+ 
+</head>
+<body>
+    <div class="header">
+        <div class="home-icon" onclick="location.href='/'">&#x2302;</div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#" class="close-btn" onclick="toggleMenu()">&times;</a>
+        <a href="#">リンク1</a>
+        <a href="#">リンク2</a>
+        <a href="#">リンク3</a>
+        <a href="#">リンク4</a>
+        <a href="#">リンク5</a>
+        <a href="#">お問い合わせ</a>
+    </div>
+
+    <div class="container">
+        <h1>お問い合わせ</h1>
+        <p>バグや問題が発生した場合は、以下のフォームにご記入の上、ご報告ください。</p>
+        <form action="submit_form.php" method="POST">
+            <div class="form-group">
+                <label for="name">名前:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">メッセージ:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">送信</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.width = menu.style.width === '250px' ? '0' : '250px';
+        }
+    </script>
+</body>
+</html>
