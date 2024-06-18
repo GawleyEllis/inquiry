@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://GawleyEllis.github.io/inquiry/stylesheet.css">
     <title>お問い合わせフォーム</title>
-
+ 
 </head>
 <body>
     <div class="header">
@@ -15,24 +14,27 @@
 
     <div class="menu" id="menu">
         <a href="#" class="close-btn" onclick="toggleMenu()">&times;</a>
-        <a href="https://gawleyellis.github.io/Universal-Studios-Japan-blog/">ユニバで買ったほうがいい商品</a>
+        <a href="#">リンク1</a>
         <a href="#">リンク2</a>
         <a href="#">リンク3</a>
-        <a href="#">リンク4</a>
-        <a href="https://gawleyellis.github.io/inquiry/">お問い合わせ</a>
+        <a href="#">お問い合わせ</a>
     </div>
 
     <div class="container">
         <h1>お問い合わせ</h1>
         <p>バグや問題が発生した場合は、以下のフォームにご記入の上、ご報告ください。</p>
-        <form id="contactForm" action="https://formspree.io/f/mleqqylb" method="POST" onsubmit="return validateForm()">
+        <form id="contactForm" action="https://formspree.io/f/{your_form_id}" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="name">名前:</label>
                 <input type="text" id="name" name="name" placeholder="入力してください" required>
             </div>
             <div class="form-group">
                 <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" value="lam007ww@gmail.com" readonly>
+                <input type="email" id="email" name="email" placeholder="lam007ww@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" placeholder="パスワードを入力してください">
             </div>
             <div class="form-group">
                 <label for="message">メッセージ:</label>
@@ -52,9 +54,10 @@
 
         function validateForm() {
             const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            if (!name || !message) {
-                alert('名前とメッセージを入力してください。');
+            if (!name || !email || !message) {
+                alert('名前、メールアドレス、メッセージを入力してください。');
                 return false;
             }
             return true;
