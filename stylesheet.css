@@ -1,4 +1,4 @@
-   <style>
+       <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -106,6 +106,10 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #888;
         }
 
         button {
